@@ -1,8 +1,5 @@
-# Main class
-def print_debug(name):
-    # Debug
-    print(f'texxte, {name}')
-
+from Controller.ctrl_principal import CtrlPrincipal
 
 if __name__ == '__main__':
-    print_debug('teste')
+    filmList = CtrlPrincipal()
+    filmList.telaPrincipal()
