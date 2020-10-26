@@ -8,11 +8,18 @@ from Controller.ctrl_series import CtrlSeries
 class CtrlPrincipal:
 
     def __init__(self):
-        self.Model = Filmes
+        self.model = Filmes
         self.model = Series
-        self.Controller = CtrlFilmes()
-        self.Controller = CtrlSeries()
-        self.view = ViewPrincipal()
+        self.ctrlFilme = CtrlFilmes()
+        self.ctrlSerie = CtrlSeries(self)
+        self.view = ViewPrincipal(self)
 
     def telaPrincipal(self):
-        ViewPrincipal.telaInicial(self)
+        self.view.telaInicial()
+        print('inserido')
+
+    def telaFilme(self):
+        self.ctrlFilme.telaFilme()
+
+    def telaSerie(self):
+        self.ctrlSerie.telaSerie()

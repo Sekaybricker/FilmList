@@ -1,4 +1,7 @@
 class SerieView:
 
-    def __init__(self):
-        pass
+    def __init__(self, CtrlSeries):
+        self.ctrlSerie = CtrlSeries
+
+    def telaSerie(self):
+        print('serie')
