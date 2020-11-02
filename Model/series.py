@@ -40,7 +40,7 @@ class Series(Conteudo):
     @episodios.setter
     def episodios(self, episodios):
         self.__episodios = episodios
-        
-    def insereSerie(self,nome,nota,episodios,critica,genero):
-      series = Series(nome,nota,episodios,critica,genero)
-      self.__series.append(series)     
+
+    def insereSerie(self, nome, nota, episodios, critica, genero):
+        series = Series(nome, nota, episodios, critica, genero)
+        self.__series.append(series)
