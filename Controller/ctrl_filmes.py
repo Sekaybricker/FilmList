@@ -6,13 +6,13 @@ class CtrlFilmes:
 
     def __init__(self):
         self.filmeView = FilmeView(self)
-        self.filmes = Filmes
+        self.filmes = Filmes()
 
     def telaFilme(self):
         self.filmeView.telaFilme()
 
     def inserirFilme(self, nome, nota, critica, genero, duracao):
-        self.filmes.insereFilme(self, nome, nota, critica, genero, duracao)
+        self.filmes.insereFilme(nome, nota, critica, genero, duracao)
         self.filmeView.telaFilme()
 
     def excluirFilme(self):
