@@ -4,4 +4,8 @@ class SerieView:
         self.ctrlSerie = CtrlSeries
 
     def telaSerie(self):
-        print('serie')
+        print('')
+        print('--------Excluir Serie--------')
+        nome = input('Digite o nome da serie: ')
+        print('Serie Removida')
+        self.ctrlSeries.excluirSerie(nome)
