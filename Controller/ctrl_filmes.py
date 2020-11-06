@@ -7,22 +7,23 @@ class CtrlFilmes:
     def __init__(self):
         self.filmeView = FilmeView(self)
         self.filmes = Filmes
+        self.filmesList = []
 
     def telaFilme(self):
         self.filmeView.telaFilme()
 
     def inserirFilme(self, nome, nota, critica, genero, duracao):
-        self.filmes.insereFilme(self, nome, nota, critica, genero, duracao)
+        filme = Filmes(nome, nota, critica, genero, duracao)
+        self.filmesList.append(filme)
         self.filmeView.telaFilme()
 
-    def excluirFilme(self):
-        print('excluir')
+    def excluirFilme(self, filmeNome):
+        self.filmesList.remove(filmeNome)
         self.filmeView.telaFilme()
 
     def ordenarfilme(self):
-        print('ordena')
         self.filmeView.telaFilme()
 
     def listarFilme(self):
-        print('lista')
+        print('[%s]' % ', '.join(map(str, self.filmesList)))
         self.filmeView.telaFilme()

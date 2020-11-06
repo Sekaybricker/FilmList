@@ -54,7 +54,9 @@ class FilmeView:
         self.ctrlFilmes.inserirFilme(nome, nota, critica, genero, duracao)
 
     def excluirFilme(self):
-        print('excluir')
+        print('')
+        print('--------Excluir Filme--------')
+        nome = input('Digite o nome do filme: ')
+        print('Filme Removido')
+        self.ctrlFilmes.excluirFilme(nome)
 
-    def listarFilme(self):
-        print('lista')

@@ -7,11 +7,7 @@ class Filmes(Conteudo):
     def __init__(self, nome: str, nota: int, critica: str, duracao: int, genero: EnumGenero):
         super().__init__(nome, nota, critica, genero)
         self.__duracao = duracao
-        self.filmes = dict(nome, nota, critica, duracao, genero)
-
-    def insereFilme(self, nome, nota, critica, genero, duracao):
-        filme = Filmes(nome, nota, critica, genero, duracao)
-        self.filmes.append(filme)
+        self.filmesList = [nome, nota, critica, duracao, genero]
 
     @property
     def nome(self):
