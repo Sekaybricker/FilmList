@@ -1,3 +1,4 @@
+from Model.series import Series
 from View.serie_view import SerieView
 
 
@@ -10,18 +11,19 @@ class CtrlSeries:
 
     def telaSerie(self):
         self.serieView.telaSerie()
-    
-    def inserirSerie(self, nome, nota, episodio,critica,genero):
-        series = Series(nome, nota, episodios, critica, genero)
-        self.__series.append(series)
-        
+
+    def inserirSerie(self, nome, nota, episodios, critica, genero):
+        series = Series(nome, nota, critica, episodios, genero)
+        self.seriesList.append(series)
+        self.serieView.telaSerie()
+
     def excluirSerie(self, serieNome):
         self.seriesList.remove(serieNome)
         self.serieView.telaSerie()
-        
+
     def ordenaSerie(self):
-        self.filmeView.telaFilme()
-        
+        self.serieView.telaSerie()
+
     def listarSerie(self):
         print('[%s]' % ', '.join(map(str, self.seriesList)))
         self.serieView.telaSerie()

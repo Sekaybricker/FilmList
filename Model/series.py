@@ -4,10 +4,9 @@ from Model.enumGenero import EnumGenero
 
 class Series(Conteudo):
 
-    def __init__(self, nome: str, nota: int, critica: str, episodios: int, genero: EnumGenero, series: []):
+    def __init__(self, nome: str, nota: int, critica: str, episodios: int, genero: EnumGenero):
         super().__init__(nome, nota, critica, genero)
         self.__episodios = episodios
-        self.__series = series
 
     @property
     def nome(self):
@@ -41,6 +40,6 @@ class Series(Conteudo):
     def episodios(self, episodios):
         self.__episodios = episodios
 
-    def insereSerie(self, nome, nota, episodios, critica, genero):
-        series = Series(nome, nota, episodios, critica, genero)
-        self.__series.append(series)
+     #def insereSerie(self, nome, nota, episodios, critica, genero):
+       # series = Series(nome, nota, episodios, critica, genero)
+       # self.__series.append(series)

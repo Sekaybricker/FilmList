@@ -1,12 +1,17 @@
+import sys
+from Model.enumGenero import EnumGenero
+
+
 class SerieView:
 
     def __init__(self, CtrlSeries):
         self.ctrlSerie = CtrlSeries
         self.enumGenero = EnumGenero
 
-
     def telaSerie(self):
-        print('')
+        opcao = ''
+        while opcao != '0':
+            print('')
             print('--------Tela Series--------')
             print('|Digite a opcão desejada:')
             print('|[1] - Inserir series')
@@ -24,6 +29,7 @@ class SerieView:
                 self.excluirSerie()
                 break
             elif opcao == '3':
+
                 self.ctrlSeries.ordenarSerie()
                 break
             elif opcao == '4':
@@ -45,11 +51,11 @@ class SerieView:
         enumList = list(map(str, EnumGenero))
         print(enumList)
         genero = input('selecione a opção do genero: ')
-        self.ctrlSeries.inserirSerie(self, nome, nota, episodio,critica,genero)
+        self.ctrlSeries.inserirSerie(self, nome, nota, episodio, critica, genero)
 
-    def excluirFilme(self):
+    def excluirSerie(self):
         print('')
         print('--------Excluir Serie--------')
-        nome = input('Digite o nome do serie: ')
+        SerieNome = input('Digite o nome do serie: ')
         print('Serie Removida')
         self.ctrlSeries.excluirSerie(SerieNome)

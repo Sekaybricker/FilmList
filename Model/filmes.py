@@ -9,6 +9,7 @@ class Filmes(Conteudo):
         self.__duracao = duracao
         self.filmesList = [nome, nota, critica, duracao, genero]
 
+
     @property
     def nome(self):
         return self.__nome

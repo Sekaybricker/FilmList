@@ -11,7 +11,7 @@ class CtrlPrincipal:
         self.model = Filmes
         self.model = Series
         self.ctrlFilme = CtrlFilmes()
-        self.ctrlSerie = CtrlSeries(self)
+        self.ctrlSerie = CtrlSeries()
         self.view = ViewPrincipal(self)
 
     def telaPrincipal(self):
