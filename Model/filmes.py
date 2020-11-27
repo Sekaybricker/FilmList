@@ -1,14 +1,11 @@
 from Model.conteudo import Conteudo
-from Model.enumGenero import EnumGenero
 
 
 class Filmes(Conteudo):
 
-    def __init__(self, nome: str, nota: int, critica: str, duracao: int, genero: EnumGenero):
+    def __init__(self, nome: str, nota: int, critica: str, genero: str,duracao: int):
         super().__init__(nome, nota, critica, genero)
         self.__duracao = duracao
-        self.filmesList = [nome, nota, critica, duracao, genero]
-
 
     @property
     def nome(self):

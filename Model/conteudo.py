@@ -1,10 +1,9 @@
 from abc import ABC
-from Model.enumGenero import EnumGenero
 
 
 class Conteudo(ABC):
 
-    def __init__(self, nome: str, nota: int, critica: str, genero: EnumGenero):
+    def __init__(self, nome: str, nota: int, critica: str, genero=str):
         self.__nome = nome
         self.__nota = nota
         self.__critica = critica

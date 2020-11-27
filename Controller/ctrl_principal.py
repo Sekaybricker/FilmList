@@ -10,13 +10,12 @@ class CtrlPrincipal:
     def __init__(self):
         self.model = Filmes
         self.model = Series
-        self.ctrlFilme = CtrlFilmes()
+        self.ctrlFilme = CtrlFilmes(self)
         self.ctrlSerie = CtrlSeries()
         self.view = ViewPrincipal(self)
 
     def telaPrincipal(self):
         self.view.telaInicial()
-        print('inserido')
 
     def telaFilme(self):
         self.ctrlFilme.telaFilme()

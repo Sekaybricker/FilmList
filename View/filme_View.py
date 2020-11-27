@@ -1,62 +1,100 @@
 import sys
-from Model.enumGenero import EnumGenero
+import PySimpleGUI as sg
 
 
 class FilmeView:
 
     def __init__(self, CtrlFilmes):
         self.ctrlFilmes = CtrlFilmes
-        self.enumGenero = EnumGenero
 
     def telaFilme(self):
-
-        opcao = ''
-        while opcao != '0':
-            print('')
-            print('--------Tela Filmes--------')
-            print('|Digite a opcão desejada:')
-            print('|[1] - Inserir filmes')
-            print('|[2] - Excluir filme')
-            print('|[3] - Ordenar filmes')
-            print('|[4] - Listar  filmes')
-            print('|[0] - Sair')
-            opcao = input('|Opção:')
-            print('|--------------------------|')
-            print('')
-            if opcao == '1':
+        sg.theme('DarkTanBlue')
+        layout = [
+            [sg.Text('Selecione a opção desejada')],
+            [sg.Button('Inserir Filme'), sg.Button('Remover Filme')],
+            [sg.Button('Listar Filmes'), sg.Button('Editar Filme')],
+            [sg.Button('Ordenar Filmes'), sg.Button('Voltar')]
+        ]
+        tela1 = sg.Window('Gerenciamento De Filmes', layout, default_button_element_size=(15, 2),
+                          auto_size_buttons=False, grab_anywhere=False, finalize=True)
+        while True:
+            window, event, value = sg.read_all_windows()
+            if window == tela1 and event == sg.WIN_CLOSED:
+                break
+            if window == tela1 and event == 'Inserir Filme':
+                tela1.hide()
                 self.inserirFilme()
-                break
-            elif opcao == '2':
-                self.excluirFilme()
-                break
-            elif opcao == '3':
-                self.ctrlFilmes.ordenarfilme()
-                break
-            elif opcao == '4':
+            if window == tela1 and event == 'Remover Filme':
+                tela1.hide()
+                self.ctrlFilmes.excluirFilme()
+            if window == tela1 and event == 'Listar Filmes':
+                tela1.hide()
                 self.ctrlFilmes.listarFilme()
-                break
-            elif opcao == '0':
-                sys.exit()
-            elif opcao != '1' and '2' and '0' and '3' and '4':
-                print('digite uma opção valida')
-                self.telaFilme()
+            if window == tela1 and event == 'Editar Filme':
+                tela1.hide()
+                self.ctrlFilmes.editarFilme()
+            if window == tela1 and event == 'Ordenar Filmes':
+                tela1.hide()
+                self.ctrlFilmes.ordenarfilme()
+            if window == tela1 and event == 'Voltar':
+                tela1.close()
+                self.ctrlFilmes.telaInicial()
+
 
     def inserirFilme(self):
-        print('')
-        print('--------Inserir Filme--------')
-        nome = input('Digite o nome do filme: ')
-        nota = input('Digite uma nota: ')
-        critica = input('Escreva uma critica: ')
-        enumList = list(map(str, EnumGenero))
-        print(enumList)
-        genero = input('selecione a opção do genero: ')
-        duracao = input('Digite a duração em segundos: ')
-        self.ctrlFilmes.inserirFilme(nome, nota, critica, genero, duracao)
+        sg.theme('DarkTanBlue')
+        layout = [
+            [sg.Text('Adicionar Filme')],
+            [sg.Text('Nome:',size=(6,1)),sg.Input(size=(25,1))],
+            [sg.Text('Nota:',size=(6,1)),sg.Input(size=(25,1))],
+            [sg.Text('Critica:',size=(6,1)),sg.Input(size=(25,1))],
+            [sg.Text('Gênero:',size=(6,1)),sg.Input(size=(25,1))],
+            [sg.Text('Duração:',size=(6,1)),sg.Input(size=(25,1))],
+            [sg.Text('    '),sg.Button('Cadastrar'),sg.Button('Voltar')]
+        ]
+        tela1 = sg.Window('Gerenciamento De Filmes', layout, default_button_element_size=(10, 2),
+                          auto_size_buttons=False, grab_anywhere=False, finalize=True)
+        while True:
+            window, event, value = sg.read_all_windows()
+            if window == tela1 and event == sg.WIN_CLOSED:
+                break
+            if window == tela1 and event == 'Cadastrar':
+                tela1.close()
+                nome = value[0]
+                nota = value[1]
+                critica = value[2]
+                genero = value[3]
+                duracao = value[4]
+                self.ctrlFilmes.inserirFilme(nome, nota, critica, genero, duracao)
+            if window == tela1 and event == 'Voltar':
+                tela1.close()
+                self.telaFilme()
 
-    def excluirFilme(self):
-        print('')
-        print('--------Excluir Filme--------')
-        nome = input('Digite o nome do filme: ')
-        print('Filme Removido')
-        self.ctrlFilmes.excluirFilme(nome)
-
+    def Excluir(self):
+        sg.theme('DarkTanBlue')
+        layout = [
+            [sg.Text('Adicionar Filme')],
+            [sg.Text('Nome:',size=(6,1)),sg.Input(size=(25,1))],
+            [sg.Text('Nota:',size=(6,1)),sg.Input(size=(25,1))],
+            [sg.Text('Critica:',size=(6,1)),sg.Input(size=(25,1))],
+            [sg.Text('Gênero:',size=(6,1)),sg.Input(size=(25,1))],
+            [sg.Text('Duração:',size=(6,1)),sg.Input(size=(25,1))],
+            [sg.Text('    '),sg.Button('Cadastrar'),sg.Button('Voltar')]
+        ]
+        tela1 = sg.Window('Gerenciamento De Filmes', layout, default_button_element_size=(10, 2),
+                          auto_size_buttons=False, grab_anywhere=False, finalize=True)
+        while True:
+            window, event, value = sg.read_all_windows()
+            if window == tela1 and event == sg.WIN_CLOSED:
+                break
+            if window == tela1 and event == 'Cadastrar':
+                tela1.close()
+                nome = value[0]
+                nota = value[1]
+                critica = value[2]
+                genero = value[3]
+                duracao = value[4]
+                self.ctrlFilmes.inserirFilme(nome, nota, critica, genero, duracao)
+            if window == tela1 and event == 'Voltar':
+                tela1.close()
+                self.telaFilme()

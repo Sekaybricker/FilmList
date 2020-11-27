@@ -1,4 +1,4 @@
-import sys
+import PySimpleGUI as sg
 
 
 class ViewPrincipal:
@@ -7,26 +7,20 @@ class ViewPrincipal:
         self.CtrlPrincipal = CtrlPrincipal
 
     def telaInicial(self):
-        opcao = ''
-        while opcao != '0':
-            print('')
-            print('|-------Tela inicial-------|')
-            print('|Digite a opcão desejada:')
-            print('|[1] - Tela de filmes')
-            print('|[2] - Tela de series')
-            print('|[0] - Sair')
-            opcao = input('|Opção:')
-            print('|--------------------------|')
-            print('')
-            if opcao == '1':
+        sg.theme('DarkTanBlue')
+        layout = [
+            [sg.Text('Selecione a tela que deseja acessar')],
+            [sg.Button('Filmes'), sg.Button('Series')]
+        ]
+        tela1 = sg.Window('Tela inicial FilmList', layout, default_button_element_size=(15, 2),
+                          auto_size_buttons=False, grab_anywhere=False, finalize=True)
+        while True:
+            window, event, value = sg.read_all_windows()
+            if window == tela1 and event == sg.WIN_CLOSED:
+                break
+            if window == tela1 and event == 'Filmes':
+                tela1.close()
                 self.CtrlPrincipal.telaFilme()
-                break
-            elif opcao == '2':
+            if window == tela1 and event == 'Series':
+                tela1.close()
                 self.CtrlPrincipal.telaSerie()
-                break
-            elif opcao == '0':
-                sys.exit()
-            elif opcao != '1' and '2' and '0':
-                print('digite uma opção valida')
-                self.telaInicial()
-
