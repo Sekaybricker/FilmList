@@ -7,7 +7,6 @@ class CtrlFilmes:
     def __init__(self, CtrlPrincipal):
         self.filmeView = FilmeView(self)
         self.ctrlPrincipal = CtrlPrincipal
-        self.filmes = Filmes
         self.filmesList = []
 
     def __str__(self):
@@ -18,8 +17,9 @@ class CtrlFilmes:
 
     def inserirFilme(self, nome, nota, critica, genero, duracao):
         filme = Filmes(nome, nota, critica, genero, duracao)
-        self.filmesList.append(filme)
-        print((self.filmesList[0]))
+        i = 0
+        self.filmesList.insert(i, filme)
+        i = i + 1
         self.filmeView.telaFilme()
 
     def excluirFilme(self, filmeNome):
