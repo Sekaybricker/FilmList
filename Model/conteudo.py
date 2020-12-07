@@ -19,7 +19,10 @@ class Conteudo(ABC):
 
     @property
     def nota(self):
-        return self.__nota
+        try:
+            return self.__nota
+            if self.__nota < 0:
+                print("Erro!Por favor insira um valor maior que zero")
 
     @nota.setter
     def nota(self, nota):
