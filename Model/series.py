@@ -33,15 +33,8 @@ class Series(Conteudo):
 
     @property
     def episodios(self):
-        try:
         return self.__episodios
-        if self.__episodios < 0:
-            print("Erro!Por favor insira um numero maior que zero")
 
     @episodios.setter
     def episodios(self, episodios):
         self.__episodios = episodios
-
-     #def insereSerie(self, nome, nota, episodios, critica, genero):
-       # series = Series(nome, nota, episodios, critica, genero)
-       # self.__series.append(series)
