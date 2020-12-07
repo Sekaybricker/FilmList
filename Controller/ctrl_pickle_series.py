@@ -1,3 +1,5 @@
+from Model.series import Series
+from View.serie_view import SerieView
 import pickle
 
 series = {}
